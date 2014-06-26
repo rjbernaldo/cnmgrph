@@ -1,3 +1,6 @@
+TIME = document.getElementById('time');
+OPA = 0;
+
 function setTime() {
   var today = new Date();
   var h = today.getHours();
@@ -6,7 +9,7 @@ function setTime() {
   h = changeHour(h)
   m = mAndS(m);
   s = mAndS(s);
-  document.getElementById('time').innerHTML = h + ':' + m + ':' + s;
+  TIME.innerHTML = h + ':' + m + ':' + s;
 }
 
 function mAndS(int) {
@@ -15,6 +18,7 @@ function mAndS(int) {
   }
   else return int;
 }
+
 function changeHour(int){
   if (int > 12) {
     int = int - 12
@@ -23,4 +27,8 @@ function changeHour(int){
   return int
 }
 
+setTimeout(function() {
+  TIME.setAttribute('class','show');
+}, 500);
 setInterval(setTime, 500);
+

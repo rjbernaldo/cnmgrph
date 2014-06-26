@@ -4,6 +4,6 @@
   "version": "1.0",
   "description": "Cinemagraph background for your new tab!",
   "chrome_url_overrides": {
-    "newtab": "new_tab.html"
+    "newtab": "newtab.html"
   }
 }
