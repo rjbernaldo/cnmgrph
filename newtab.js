@@ -14,21 +14,38 @@ function setTime() {
 
 function mAndS(int) {
   if (int < 10) {
-    return "0" + int;
+    int = "0" + int;
   }
-  else return int;
+  return int;
 }
 
 function changeHour(int){
   if (int > 12) {
     int = int - 12
-    int = "0" + int
+    int = mAndS(int);
   }
   return int
 }
 
 setTimeout(function() {
   TIME.setAttribute('class','show');
-}, 500);
-setInterval(setTime, 500);
+}, 250);
+// setInterval(setTime, 500);
 
+var req = new XMLHttpRequest();
+
+req.onreadystatechange = function() {
+  if (req.readyState == 4) {
+    if (req.status == 200) {
+      console.log(req.responseText);
+      TIME.innerHTML = req.responseText;
+    } else if (req.status == 400) {
+      TIME.innerHTML = "API Limit Reached";
+    } else {
+      TIME.innerHTML = "Offline";
+    }
+  }
+}
+
+req.open('GET', 'https://api.github.com/zen');
+req.send();
