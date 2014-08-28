@@ -1,5 +1,5 @@
-TIME = document.getElementById('time');
-OPA = 0;
+var TIME = document.getElementById('time');
+var OPA = 0;
 
 setTimeout(function() {
   TIME.setAttribute('class','show');
@@ -10,7 +10,6 @@ var req = new XMLHttpRequest();
 req.onreadystatechange = function() {
   if (req.readyState == 4) {
     if (req.status == 200) {
-      console.log(req.responseText);
       TIME.innerHTML = req.responseText;
     } else if (req.status == 400) {
       TIME.innerHTML = "API Limit Reached";

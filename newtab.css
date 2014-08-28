@@ -1,12 +1,9 @@
 body {
-  background-image: url('images/dog.gif');
-  background-size: cover;
-  background-repeat: no-repeat;
   margin: 0 auto;
 }
 
 #time {
-  color: white;
+  color: black;
   font-size: 4em;
   font-family: 'Roboto', sans-serif;
   position: absolute;
